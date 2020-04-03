@@ -1,7 +1,7 @@
-export default function(target, path) {
+export default function(object, path) {
 	path = path.split('.');
-	while (path.length) {
-		target = target[path.shift()];
+	for (let i = 0, ii = path.length; i < ii; i++) {
+		object = object[path[i]];
 	}
-	return target;
+	return object;
 }
