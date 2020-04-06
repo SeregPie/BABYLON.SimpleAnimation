@@ -10,7 +10,7 @@ let globals = {
 
 export default {
 	external: Object.keys(globals),
-	input: 'src/rollup.js',
+	input: 'src/index.rollup.js',
 	plugins: [
 		alias({
 			entries: [
