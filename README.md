@@ -166,9 +166,17 @@ A delay between animations.
 
 - `SimpleAnimation`
 
+#### instance properties
+
+`.duration`
+
+*read-only*
+
+A number as the duration.
+
 #### instance functions
 
-`.add(...children)`
+`.add(...animations)`
 
 Adds animations to the group.
 
@@ -191,14 +199,6 @@ A parallel group of animations.
 
 `new BABYLON.SimpleParallelAnimationGroup()`
 
-#### instance properties
-
-`.duration`
-
-*read-only*
-
-A number as the duration.
-
 ### SimpleSequentialAnimationGroup
 
 A sequential group of animations.
@@ -212,13 +212,31 @@ A sequential group of animations.
 
 `new BABYLON.SimpleSequentialAnimationGroup()`
 
-#### instance properties
+### SimpleStaggeredAnimationGroup
 
-`.duration`
+A staggered group of animations.
 
-*read-only*
+#### hierarchy
 
-A number as the duration.
+- `SimpleAnimation`
+- `SimpleAnimationGroup`
+
+#### constructor
+
+`new BABYLON.SimpleStaggeredAnimationGroup(delay)`
+
+| argument | description |
+| ---: | :--- |
+| `delay` | A function to calculate the delay between the start times of each animation. The function starts calling from the second animation in the group. |
+
+`delay(index, length, currentAnimation, previousAnimation)`
+
+| argument | description |
+| ---: | :--- |
+| `index` | A number as the index of the current animation in the group. |
+| `length` | A number as the count of the animations in the group. |
+| `currentAnimation` | An instance of `SimpleAnimation` as the current animation. |
+| `previousAnimation` | An instance of `SimpleAnimation` as the previous animation. |
 
 ### Scene
 
