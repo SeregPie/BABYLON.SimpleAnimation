@@ -8,16 +8,16 @@ export default class extends SimpleAnimationGroup {
 	}
 	get duration() {
 		let {
+			_animations: animations,
 			_calculateDelay: calculateDelay,
-			_children: children,
 		} = this;
 		let result = 0;
 		let delay = 0;
-		children.forEach((child, i, {length}) => {
+		animations.forEach((animation, i, {length}) => {
 			if (i) {
-				delay += calculateDelay(i, length, child, children[i - 1]);
+				delay += calculateDelay(i, length, animation, animations[i - 1]);
 			}
-			result = Math.max(result, delay + child.duration);
+			result = Math.max(result, delay + animation.duration);
 		});
 		return result;
 	}
@@ -26,19 +26,19 @@ export default class extends SimpleAnimationGroup {
 			.resolve()
 			.then(() => {
 				let {
+					_animations: animations,
 					_calculateDelay: calculateDelay,
-					_children: children,
 				} = this;
 				let promises = [];
 				let delay = 0;
-				children.forEach((child, i, {length}) => {
+				animations.forEach((animation, i, {length}) => {
 					let promise = Promise.resolve();
 					if (i) {
-						delay += calculateDelay(i, length, child, children[i - 1]);
-						let animation = new SimpleAnimationDelay(delay);
-						promise = promise.then(() => animation.run(...args));
+						delay += calculateDelay(i, length, animation, animations[i - 1]);
+						let animationDelay = new SimpleAnimationDelay(delay);
+						promise = promise.then(() => animationDelay.run(...args));
 					}
-					promise = promise.then(() => child.run(...args));
+					promise = promise.then(() => animation.run(...args));
 					promises.push(promise);
 				});
 				return Promise.all(promises);
