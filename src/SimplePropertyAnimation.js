@@ -3,7 +3,7 @@ import SimpleAnimation from './SimpleAnimation';
 
 import './Animation/GuessAnimationType';
 
-import getDeep from './helpers/getDeep';
+import Object_getDeep from './core/Object/getDeep';
 
 export default class extends SimpleAnimation {
 	constructor({
@@ -39,7 +39,7 @@ export default class extends SimpleAnimation {
 				type,
 			} = this;
 			if (from === undefined) {
-				from = getDeep(target, property);
+				from = Object_getDeep(target, property);
 			}
 			if (type === undefined) {
 				type = Animation.GuessAnimationType(from);
