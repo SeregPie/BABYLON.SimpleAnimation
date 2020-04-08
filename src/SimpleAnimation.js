@@ -1,5 +1,7 @@
 import {Observable} from '@babylonjs/core/Misc/observable';
 
+import './Scene/prototype/beginSimpleAnimation';
+
 export default class {
 	constructor() {
 		Object.assign(this, {

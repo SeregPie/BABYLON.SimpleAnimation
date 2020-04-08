@@ -1,5 +1,3 @@
-import './Scene/prototype/beginSimpleAnimation';
-
 import SimpleAnimation from './SimpleAnimation';
 import SimpleAnimationDelay from './SimpleAnimationDelay';
 import SimpleAnimationGroup from './SimpleAnimationGroup';

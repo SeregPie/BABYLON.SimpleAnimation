@@ -11,7 +11,7 @@ import {
 	Vector3,
 } from "@babylonjs/core/Maths/math.vector";
 
-export default function(value) {
+Animation.GuessAnimationType = function(value) {
 	if (value instanceof Vector3) {
 		return Animation.ANIMATIONTYPE_VECTOR3;
 	}
@@ -34,4 +34,4 @@ export default function(value) {
 		return Animation.ANIMATIONTYPE_SIZE;
 	}
 	return Animation.ANIMATIONTYPE_FLOAT;
-}
+};

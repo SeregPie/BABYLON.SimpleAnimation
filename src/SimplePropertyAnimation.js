@@ -1,8 +1,9 @@
 import {Animation} from '@babylonjs/core/Animations/animation';
 import SimpleAnimation from './SimpleAnimation';
 
+import './Animation/GuessAnimationType';
+
 import getDeep from './helpers/getDeep';
-import guessAnimationType from './helpers/guessAnimationType';
 
 export default class extends SimpleAnimation {
 	constructor({
@@ -41,7 +42,7 @@ export default class extends SimpleAnimation {
 				from = getDeep(target, property);
 			}
 			if (type === undefined) {
-				type = guessAnimationType(from);
+				type = Animation.GuessAnimationType(from);
 			}
 			let animation = new Animation(
 				'',
