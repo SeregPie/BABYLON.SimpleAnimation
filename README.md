@@ -197,7 +197,37 @@ A parallel group of animations.
 
 #### constructor
 
-`new BABYLON.SimpleParallelAnimationGroup()`
+```
+new BABYLON.SimpleParallelAnimationGroup({
+  alignment: ALIGNMENT.CENTER,
+})
+```
+
+| argument | description |
+| ---: | :--- |
+| `alignment` | The alignment of each animation in the group. |
+
+#### static properties
+
+`.ALIGNMENT.CENTER`
+
+The animations are centered.
+
+---
+
+`.ALIGNMENT.START`
+
+The animations start at the same time.
+
+---
+
+`.ALIGNMENT.END`
+
+The animations end at the same time.
+
+#### instance properties
+
+`.alignment`
 
 ### SimpleSequentialAnimationGroup
 
